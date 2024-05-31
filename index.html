@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookmark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/all.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <main>
+    <div class="container py-5">
+      <h1 class="display-5 mx-auto mb-5">Bookmarker</h1>
+      <!-- Start book-body -->
+      <div class="book-body border-start-0 border-end-0 py-4 px-3 mb-5">
+        <h3 class="text-center fw-bold fs-5 mb-4">
+          <i class="fa-solid fa-bookmark"></i> Bookmark your favorite sites
+          <i class="fa-solid fa-bookmark"></i>
+        </h3>
+        <div class="mb-3">
+          <label for="name" class="form-label"><i class="fa-solid fa-book-bookmark"></i> Site Name</label>
+          <input type="text" oninput="validationBookMarkName()" class="form-control" id="name"
+            placeholder="Bookmark Name" />
+        </div>
+        <div class="mb-3">
+          <label for="url" class="form-label"><i class="fa-solid fa-link"></i> Site URL</label>
+          <input type="url" oninput="validationBookMarkUrl()" class="form-control" id="url" placeholder="Website URL" />
+        </div>
+        <!-- Button trigger modal -->
+        <button type="button" onclick="addBookMark()" class="btn main px-5 d-block mx-auto">
+          Submit
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4 pb-0">
+              <div class="modal-header border-0">
+                <span class="red"></span>
+                <span class="yellow"></span>
+                <span class="green"></span>
+                <button type="button" class="btn-close text-black" data-bs-dismiss="modal" aria-label="Close"
+                  onclick="hideModal()"></button>
+              </div>
+              <div class="modal-body">
+                <h2 class="fs-5 fw-bold mb-3">
+                  Site Name or Url is not valid, Please follow the rules below:
+                </h2>
+                <p>
+                  <i class="fa-regular fa-circle-right"></i> Site name must
+                  contain at least 3 characters
+                </p>
+                <p>
+                  <i class="fa-regular fa-circle-right"></i> Site URL must be
+                  a valid one
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End book-body -->
+      <!-- Start table -->
+      <table class="table text-center mt-4">
+        <thead>
+          <tr>
+            <th scope="col">Index</th>
+            <th scope="col">Website Name</th>
+            <th scope="col">Visit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody id="table"></tbody>
+      </table>
+      <!-- End table -->
+    </div>
+  </main>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
